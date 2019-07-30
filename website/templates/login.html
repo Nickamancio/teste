@@ -1,0 +1,21 @@
+{%extends 'shared/layout.html'%}
+
+<link rel="stylesheet" href="{% static "login.html/css/style.css" %}"
+    {%block conteudo%}
+    <nav>
+        <h1>Login</h1>
+        {{msg}}
+    </nav>
+    <section>
+        <form action="/login" method="POST">
+            {% csrf_token %}
+            <a href="https://image.flaticon.com/icons/svg/149/149071.svg"></a>
+            <input type="email" name="email" placeholder="E-Mail">
+            <input type="password" name="senha" placeholder="Senha">
+            <input onclick="logar();" type="submit" value="Logar">        
+        </form>
+    </section>
+    {%endblock%}
+    <body>
+    </body>
+   

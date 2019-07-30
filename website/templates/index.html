@@ -1,0 +1,37 @@
+{%extends 'shared/layout.html'%}
+    {%block conteudo%}
+    <nav>
+         <input type="button" value="Login">
+            {%if Login.pessoa.ativo == True%}
+        return render(request,'login.html',contexto)
+        <h1>Ideias Malucas</h1>
+        <h2>{{msg}} Cadastre-se</h2>
+    </nav>
+    <section class="botoes">
+        <form action="/" method="POST">
+            {% csrf_token %}
+            <label>Nome</label>
+            <input type="text" name="nome" required>
+    
+            <label>Sobrenome</label>
+            <input type="text" required name="sobrenome">
+    
+            <label>Email</label>
+            <input type="text" required name="email">
+    
+            <label>Senha</label>
+            <input type="password" required name="senha">
+    
+            <label>Biografia</label>
+            <textarea name="biografia" cols="30" rows="10"></textarea>
+    
+            <select name="genero" required>
+                <option value="F">Feminino</option>
+                <option value="M">Masculino</option>
+                <option value="O">Outros</option>
+            </select>
+    
+            <input onclick="cadastro();" type="submit" value="Cadastrar">
+        </form>
+    </section>
+    {% endblock %}
